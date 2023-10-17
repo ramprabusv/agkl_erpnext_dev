@@ -2,5 +2,5 @@
 opencv-python
 pyzbar
 # qrtools
-# qreader
+qreader
 opencv-python

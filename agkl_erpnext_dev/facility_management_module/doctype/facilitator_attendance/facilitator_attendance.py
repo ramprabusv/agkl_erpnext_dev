@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from qreader import QReader
+# from qreader import QReader
 # import cv2
  
 
