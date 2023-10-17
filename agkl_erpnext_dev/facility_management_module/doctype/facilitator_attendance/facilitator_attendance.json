@@ -1,0 +1,100 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-10-10 18:42:43.887586",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "qr_scan",
+  "decode_qr",
+  "facilitator_name",
+  "profile_photo",
+  "display_picture",
+  "work_location",
+  "working_department",
+  "accommodation"
+ ],
+ "fields": [
+  {
+   "fieldname": "facilitator_name",
+   "fieldtype": "Link",
+   "label": "Facilitator name",
+   "options": "facilitators_list"
+  },
+  {
+   "fetch_from": "facilitator_name.location_of_work",
+   "fieldname": "work_location",
+   "fieldtype": "Link",
+   "label": "Work location",
+   "options": "agkl_locations"
+  },
+  {
+   "fetch_from": "facilitator_name.working_under",
+   "fetch_if_empty": 1,
+   "fieldname": "working_department",
+   "fieldtype": "Link",
+   "label": "Working Department",
+   "options": "facilities"
+  },
+  {
+   "fetch_from": "facilitator_name.accommodation_request",
+   "fetch_if_empty": 1,
+   "fieldname": "accommodation",
+   "fieldtype": "Link",
+   "label": "Accommodation",
+   "options": "accommodation_preference"
+  },
+  {
+   "fetch_from": "facilitator_name.worker_photo",
+   "fetch_if_empty": 1,
+   "fieldname": "profile_photo",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "Profile Photo"
+  },
+  {
+   "fieldname": "display_picture",
+   "fieldtype": "Image",
+   "label": "Display picture",
+   "mandatory_depends_on": "profile_photo",
+   "options": "profile_photo"
+  },
+  {
+   "fieldname": "qr_scan",
+   "fieldtype": "Attach Image",
+   "label": "Scan and upload QR"
+  },
+  {
+   "default": "0",
+   "fieldname": "decode_qr",
+   "fieldtype": "Check",
+   "label": "decode_qr"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-14 18:08:01.207243",
+ "modified_by": "Administrator",
+ "module": "facility_management_module",
+ "name": "facilitator_attendance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,7 @@
+.DS_Store
+*.pyc
+*.egg-info
+*.swp
+tags
+agkl_erpnext_dev/docs/current
+node_modules/

@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{working_under}-{name_of_the_worker}-{####}",
+ "creation": "2023-10-09 15:48:24.101270",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "facilitator_or_fabricator",
+  "personnel_details",
+  "name_of_the_worker",
+  "qr_generator",
+  "worker_photo",
+  "worker_profile_photo",
+  "contact_number",
+  "aadhar_number",
+  "section_break_jfxd7",
+  "department_and_location_details",
+  "working_under",
+  "location_of_work",
+  "qr_code",
+  "section_break_wdzmw",
+  "amenities_request",
+  "food_request",
+  "accommodation_request",
+  "power_request",
+  "transport_request"
+ ],
+ "fields": [
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Contact number",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "aadhar_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Aadhar number",
+   "length": 12,
+   "reqd": 1,
+   "set_only_once": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "working_under",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Working under",
+   "options": "facilities",
+   "remember_last_selected_value": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "location_of_work",
+   "fieldtype": "Link",
+   "label": "Location of work",
+   "options": "agkl_locations",
+   "reqd": 1
+  },
+  {
+   "fieldname": "name_of_the_worker",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of the worker",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "worker_photo",
+   "fieldtype": "Attach Image",
+   "label": "Worker Photo",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "depends_on": "eval:doc.facilitator_or_fabricator==\"Fabricator\";",
+   "fieldname": "power_request",
+   "fieldtype": "Table",
+   "label": "Power request",
+   "options": "power_request"
+  },
+  {
+   "fieldname": "food_request",
+   "fieldtype": "Table MultiSelect",
+   "label": "Food request",
+   "options": "food_selector"
+  },
+  {
+   "default": "No",
+   "depends_on": "eval:doc.facilitator_or_fabricator==\"Fabricator\";",
+   "fieldname": "accommodation_request",
+   "fieldtype": "Link",
+   "label": "Accommodation request",
+   "options": "accommodation_preference"
+  },
+  {
+   "default": "No",
+   "fieldname": "transport_request",
+   "fieldtype": "Select",
+   "label": "Transport request",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "personnel_details",
+   "fieldtype": "Heading",
+   "label": "Personnel Details"
+  },
+  {
+   "fieldname": "section_break_jfxd7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_wdzmw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "department_and_location_details",
+   "fieldtype": "Heading",
+   "label": "Department and Location details"
+  },
+  {
+   "fieldname": "amenities_request",
+   "fieldtype": "Heading",
+   "label": "Amenities request"
+  },
+  {
+   "fieldname": "facilitator_or_fabricator",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Facilitator or Fabricator",
+   "options": "Facilitator\nFabricator"
+  },
+  {
+   "depends_on": "worker_photo",
+   "fieldname": "worker_profile_photo",
+   "fieldtype": "Image",
+   "label": "Worker profile photo",
+   "options": "worker_photo"
+  },
+  {
+   "fieldname": "qr_generator",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "label": "QR generator"
+  },
+  {
+   "depends_on": "qr_generator",
+   "fieldname": "qr_code",
+   "fieldtype": "Image",
+   "label": "QR code",
+   "options": "qr_generator",
+   "print_width": "100"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-14 18:07:59.506419",
+ "modified_by": "Administrator",
+ "module": "facility_management_module",
+ "name": "facilitators_list",
+ "name_case": "UPPER CASE",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

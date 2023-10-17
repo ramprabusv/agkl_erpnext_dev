@@ -1,0 +1,48 @@
+{
+ "_user_tags": ",master",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:accommodation_preference",
+ "creation": "2023-10-10 18:54:28.315121",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "accommodation_preference"
+ ],
+ "fields": [
+  {
+   "fieldname": "accommodation_preference",
+   "fieldtype": "Data",
+   "label": "Accommodation preference",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-14 18:08:02.270779",
+ "modified_by": "Administrator",
+ "module": "facility_management_module",
+ "name": "accommodation_preference",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include agkl_erpnext_dev *.css
+recursive-include agkl_erpnext_dev *.csv
+recursive-include agkl_erpnext_dev *.html
+recursive-include agkl_erpnext_dev *.ico
+recursive-include agkl_erpnext_dev *.js
+recursive-include agkl_erpnext_dev *.json
+recursive-include agkl_erpnext_dev *.md
+recursive-include agkl_erpnext_dev *.png
+recursive-include agkl_erpnext_dev *.py
+recursive-include agkl_erpnext_dev *.svg
+recursive-include agkl_erpnext_dev *.txt
+recursive-exclude agkl_erpnext_dev *.pyc

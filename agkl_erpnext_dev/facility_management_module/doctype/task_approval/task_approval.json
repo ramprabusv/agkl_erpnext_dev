@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{task_name}-{DD}-{MM}-{YYYY}-{###}",
+ "creation": "2023-10-09 14:52:01.661475",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "task_name",
+  "column_break_ir9xk",
+  "autofill_details",
+  "column_break_zoxfo",
+  "task_priority",
+  "section_break_bzefx",
+  "materials_required",
+  "section_break_ou4ry",
+  "working_department",
+  "expected_start_date",
+  "duration_required",
+  "column_break_fxwfe",
+  "location",
+  "section_break_6rvdo",
+  "task_type",
+  "repeat_frequency",
+  "requested_days",
+  "column_break_wgf7k",
+  "section_break_xqpcz",
+  "task_status",
+  "task_assigned_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "task_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Task name",
+   "options": "task_queue",
+   "reqd": 1
+  },
+  {
+   "default": "to be assigned",
+   "fieldname": "task_status",
+   "fieldtype": "Select",
+   "label": "Task Status",
+   "options": "to be assigned\nApproved\nIn-Progress\nCompleted"
+  },
+  {
+   "default": "Low",
+   "fieldname": "task_priority",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Task priority (Default: Low)",
+   "options": "task_priority"
+  },
+  {
+   "depends_on": "eval:doc.autofill_details==\"1\"",
+   "fetch_from": "task_name.duration_to_complete",
+   "fieldname": "duration_required",
+   "fieldtype": "Duration",
+   "label": "Duration required",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.autofill_details==\"1\"",
+   "fetch_from": "task_name.location",
+   "fetch_if_empty": 1,
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "agkl_locations"
+  },
+  {
+   "depends_on": "eval:doc.task_type==\"Repetitive task\";\n// eval:doc.autofill_details==\"True\"",
+   "fetch_from": "task_name.repeat_frequency",
+   "fieldname": "repeat_frequency",
+   "fieldtype": "Data",
+   "label": "Repeat frequency",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.autofill_details==\"1\"",
+   "fetch_from": "task_name.task_type",
+   "fetch_if_empty": 1,
+   "fieldname": "task_type",
+   "fieldtype": "Link",
+   "label": "Task type",
+   "options": "task_type"
+  },
+  {
+   "depends_on": "eval:doc.autofill_details==\"1\"",
+   "fetch_from": "task_name.expected_start_date",
+   "fieldname": "expected_start_date",
+   "fieldtype": "Date",
+   "label": "Expected start date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "task_assigned_to",
+   "fieldtype": "Table MultiSelect",
+   "label": "Task assigned to",
+   "options": "available_facilitators"
+  },
+  {
+   "depends_on": "eval:doc.autofill_details==\"1\"",
+   "fieldname": "materials_required",
+   "fieldtype": "Table",
+   "label": "Materials required",
+   "options": "materials_required",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.autofill_details==\"1\"",
+   "fetch_from": "task_name.working_department",
+   "fetch_if_empty": 1,
+   "fieldname": "working_department",
+   "fieldtype": "Link",
+   "label": "Working department",
+   "options": "facilities"
+  },
+  {
+   "fieldname": "column_break_ir9xk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wgf7k",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6rvdo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_xqpcz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.repeat_frequency==\"weekly\"",
+   "fieldname": "requested_days",
+   "fieldtype": "Table",
+   "label": "Requested days",
+   "options": "Auto Repeat Day"
+  },
+  {
+   "fieldname": "column_break_fxwfe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ou4ry",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "description": "Check after selecting task name to be approved",
+   "fieldname": "autofill_details",
+   "fieldtype": "Check",
+   "label": "Autofill details",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_zoxfo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_bzefx",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-14 18:07:58.476587",
+ "modified_by": "Administrator",
+ "module": "facility_management_module",
+ "name": "task_approval",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
