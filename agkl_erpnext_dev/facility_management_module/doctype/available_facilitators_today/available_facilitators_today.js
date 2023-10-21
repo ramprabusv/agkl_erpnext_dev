@@ -2,22 +2,54 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('available_facilitators_today', {
-	// refresh: function(frm) {
-	before_load(frm){
+		
+	refresh: (frm) => {
+		if (frm.doc.__islocal) {
 		frappe.msgprint("Hellooo");
 		new frappe.ui.Scanner({
 			dialog: true, // open camera scanner in a dialog
 			multiple: false, // stop after scanning one value
 			on_scan(data) {
-			//   console.log(data.decodedText);
-			//   frappe.msgprint("Welcome");
-			// frm.set_value('name_of_the_worker',data.decodedText)
-			frm.set_value('name_of_the_worker',"data.decodedText")
-			frappe.web_form.set_value(name_of_the_worker, "123")
-
+			frm.set_value('worker_code',data.decodedText)
+			// var today = new Date();
+			// var time = today.getHours()+":"+today.getMinutes(); 
+			// frm.set_value('in_time','time');
 			}
+			
 		  });
-		  
+		}
+		else{
+			var today = new Date();
+			var dateee = today.getDate();
+			frappe.msgprint(dateee)
+			new frappe.ui.Scanner({
+				dialog: true, // open camera scanner in a dialog
+				multiple: false, // stop after scanning one value
+				on_scan(data) {
+					// frappe.msgprint(data.decodedText);
+				// frm.set_value('worker_code',data.decodedText)
+
+				// doc = frappe.get_doc('available_facilitators_today',data.decodedText+"")
+				// doc.out_time = 
+				// var today = new Date();
+					frappe.msgprint("today");
+				// var time = today.getHours()+":"+today.getMinutes(); 
+				// frm.set_value('in_time','time');
+				}
+				
+			  });
+		}
 	}
-	// }
+	
+
+	
 });
+
+
+// frappe.realtime.on("available_facilitators_today", function(data) {
+// 	if (data.message_type === "new_document") {
+// 		// Execute your client-side script here
+// 		console.log(data.data);
+// 		// You can call your client-side function or execute actions as needed
+// 	}
+// });

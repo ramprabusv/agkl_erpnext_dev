@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class Testcontractors_record(FrappeTestCase):
+class Testexit_marking(FrappeTestCase):
 	pass

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{working_under}-{name_of_the_worker}-{####}",
+ "autoname": "format:AGKL-{department_code}-{####}",
  "creation": "2023-10-09 15:48:24.101270",
  "default_view": "List",
  "doctype": "DocType",
@@ -18,20 +18,23 @@
   "section_break_jfxd7",
   "department_and_location_details",
   "working_under",
+  "department_code",
   "location_of_work",
   "qr_code",
   "section_break_wdzmw",
   "amenities_request",
-  "food_request",
+  "breakfast",
+  "lunch",
+  "dinner",
   "accommodation_request",
   "power_request",
   "transport_request"
  ],
  "fields": [
   {
+   "default": "+91- ",
    "fieldname": "contact_number",
    "fieldtype": "Phone",
-   "in_list_view": 1,
    "label": "Contact number",
    "reqd": 1,
    "set_only_once": 1
@@ -39,7 +42,6 @@
   {
    "fieldname": "aadhar_number",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Aadhar number",
    "length": 12,
    "reqd": 1,
@@ -83,12 +85,6 @@
    "fieldtype": "Table",
    "label": "Power request",
    "options": "power_request"
-  },
-  {
-   "fieldname": "food_request",
-   "fieldtype": "Table MultiSelect",
-   "label": "Food request",
-   "options": "food_selector"
   },
   {
    "default": "No",
@@ -149,14 +145,39 @@
    "label": "QR code",
    "options": "qr_generator",
    "print_width": "100"
+  },
+  {
+   "fetch_from": "working_under.code",
+   "fieldname": "department_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Department code"
+  },
+  {
+   "default": "0",
+   "fieldname": "breakfast",
+   "fieldtype": "Check",
+   "label": "Breakfast"
+  },
+  {
+   "default": "0",
+   "fieldname": "lunch",
+   "fieldtype": "Check",
+   "label": "Lunch"
+  },
+  {
+   "default": "0",
+   "fieldname": "dinner",
+   "fieldtype": "Check",
+   "label": "Dinner"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-21 08:48:13.324851",
+ "modified": "2023-10-21 16:18:40.650902",
  "modified_by": "Administrator",
  "module": "facility_management_module",
- "name": "Contractors Record",
+ "name": "facilitators_list",
  "name_case": "UPPER CASE",
  "naming_rule": "Expression",
  "owner": "Administrator",

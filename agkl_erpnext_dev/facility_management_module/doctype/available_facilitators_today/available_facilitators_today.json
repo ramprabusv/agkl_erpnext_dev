@@ -1,27 +1,24 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:name_of_the_worker",
+ "autoname": "format:{name_worker}-{DD}-{MM}-{YY}",
  "creation": "2023-10-09 20:13:00.756962",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "name_of_the_worker",
+  "worker_code",
+  "name_worker",
   "working_department",
   "location_of_work",
   "worker_photo",
-  "contact_number"
+  "contact_number",
+  "attendance_date",
+  "in_time",
+  "out_time"
  ],
  "fields": [
-  {
-   "fieldname": "name_of_the_worker",
-   "fieldtype": "Link",
-   "label": "Name of the worker",
-   "options": "Contractors Record",
-   "unique": 1
-  },
   {
    "depends_on": "name_of_the_worker",
    "fetch_from": "name_of_the_worker.location_of_work",
@@ -54,16 +51,47 @@
    "fieldname": "working_department",
    "fieldtype": "Link",
    "label": "Working department",
-   "options": "facilities"
+   "options": "Issue Type"
+  },
+  {
+   "fieldname": "in_time",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "In Time"
+  },
+  {
+   "fieldname": "out_time",
+   "fieldtype": "Data",
+   "label": "Out Time"
+  },
+  {
+   "default": "Today",
+   "fieldname": "attendance_date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "worker_code",
+   "fieldtype": "Link",
+   "label": "Worker QR",
+   "options": "facilitators_list",
+   "unique": 1
+  },
+  {
+   "fetch_from": "worker_code.name_of_the_worker",
+   "fieldname": "name_worker",
+   "fieldtype": "Data",
+   "label": "Name of the worker"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-21 08:49:24.841395",
+ "modified": "2023-10-21 18:54:20.014091",
  "modified_by": "Administrator",
  "module": "facility_management_module",
  "name": "available_facilitators_today",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
