@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class Testhousekeeping(FrappeTestCase):
+class Testcontractors_record(FrappeTestCase):
 	pass

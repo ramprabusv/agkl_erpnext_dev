@@ -12,24 +12,11 @@
  "is_hidden": 0,
  "label": "Facility Management Workspace",
  "links": [],
- "modified": "2023-10-16 10:56:00.557828",
+ "modified": "2023-10-21 09:03:07.432074",
  "modified_by": "Administrator",
  "module": "facility_management_module",
  "name": "Facility Management Workspace",
- "number_cards": [
-  {
-   "label": "Pending Housekeeping tasks",
-   "number_card_name": "pending_tasks_housekeeping"
-  },
-  {
-   "label": "Pending Security tasks",
-   "number_card_name": "pending_tasks_security"
-  },
-  {
-   "label": "Pending Painting Tasks",
-   "number_card_name": "pending_tasks_painting"
-  }
- ],
+ "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
@@ -44,12 +31,12 @@
    "quick_list_filter": "{\"module\":[\"=\",\"facility_management_module\"]}"
   },
   {
-   "document_type": "facilitators_list",
+   "document_type": "Contractors Record",
    "label": "List of Facilitators (to print ID card)",
    "quick_list_filter": "{\"name\":[\"=\",null]}"
   }
  ],
- "restrict_to_domain": "facility_mgmt_domain",
+ "restrict_to_domain": "",
  "roles": [],
  "sequence_id": 1.0,
  "shortcuts": [
@@ -77,19 +64,10 @@
    "type": "DocType"
   },
   {
-   "color": "Yellow",
-   "doc_view": "List",
-   "format": "{} unassigned tasks",
-   "label": "Housekeeping Tasks to be assigned",
-   "link_to": "task_queue",
-   "stats_filter": "{\"working_department\":[\"=\",\"House Keeping\"]}",
-   "type": "DocType"
-  },
-  {
    "color": "Grey",
    "doc_view": "New",
    "label": "Facilitator Registration Link",
-   "link_to": "facilitators_list",
+   "link_to": "Contractors Record",
    "type": "DocType"
   },
   {
@@ -106,24 +84,6 @@
    "doc_view": "New",
    "label": "Click to approve a task and assign it",
    "link_to": "task_approval",
-   "type": "DocType"
-  },
-  {
-   "color": "Yellow",
-   "doc_view": "List",
-   "format": "{} unassigned tasks",
-   "label": "Security tasks to be assigned",
-   "link_to": "task_queue",
-   "stats_filter": "{\"working_department\":[\"=\",\"Security\"]}",
-   "type": "DocType"
-  },
-  {
-   "color": "Yellow",
-   "doc_view": "List",
-   "format": "{} unassigned tasks",
-   "label": "Painters task to be assigned",
-   "link_to": "task_queue",
-   "stats_filter": "{\"working_department\":[\"=\",\"Painter\"]}",
    "type": "DocType"
   }
  ],
